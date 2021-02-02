@@ -1,11 +1,16 @@
-/* Event loop */
-const bar=()=>console.log("bar");
-const baz=()=>console.log("baz");
+const http = require('http');
 
-const foo=()=>{
-    console.log("foo");
-    bar();
-    baz();
-}
-
-foo();
+const server = http.createServer((req,res)=>{
+    if (req.url === '/'){
+        res.write('Hello world from node js');
+        res.end();
+    }
+    else{
+        res.write('using some other domain');
+        res.end();
+    }
+   
+      
+});
+server.listen('3000',()=>{
+});
